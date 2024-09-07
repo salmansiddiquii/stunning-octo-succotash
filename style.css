@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: #1d3753;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Ensure h1 and Choices section fit within the 100vh */
+h1 {
+  background-color: #081b31;
+  color: aliceblue;
+  height: 5rem;
+  line-height: 5rem;
+  margin: 0;
+  font-size: 3vw; /* Scales the font size based on viewport width */
+}
+
+.Choices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+  flex-grow: 1; /* Makes the Choices section take available space */
+  margin: 0; /* Remove the margin to better fit 100vh */
+}
+
+.choice {
+  height: 15vw;
+  width: 15vw;
+  border-radius: 50%;
+}
+
+.choice:hover {
+  cursor: pointer;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+img {
+  height: 13vw;
+  width: 13vw;
+  border-radius: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+img:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  opacity: 0.7;
+}
+
+.score-board {
+  display: flex;
+  justify-content: center;
+  gap: 5vw;
+  font-size: 3vw; /* Scales the font size based on viewport width */
+}
+
+#user-score,
+#comp-score {
+  font-size: 3vw; /* Scales the font size based on viewport width */
+}
+
+#msg {
+  background-color: #081b31;
+  color: hsl(0, 0%, 100%);
+  font-size: 2vw;
+  display: inline;
+  border-radius: 20px;
+  padding: 0.8vw 1.5vw; /* Adjusted padding */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+#msg:hover {
+  opacity: 0.9;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(31, 31, 31) 0px 0px 0px 3px;
+}
+
+/* Media Query for Tablets */
+@media (max-width: 768px) {
+  .choice {
+    height: 25vw;
+    width: 25vw;
+  }
+
+  img {
+    height: 22vw;
+    width: 22vw;
+  }
+
+  .Choices {
+    gap: 5vw;
+  }
+
+  #msg {
+    font-size: 3vw;
+    padding: 1.2vw 2.5vw;
+  }
+
+  #user-score,
+  #comp-score {
+    font-size: 8vw;
+  }
+
+  .score-board {
+    gap: 3vw;
+  }
+}
+
+/* Media Query for Mobile Devices */
+@media (min-width: 320px) and (max-width: 480px) {
+  h1 {
+    font-size: 6vw;
+  }
+
+  .choice {
+    height: 30vw;
+    width: 30vw;
+  }
+
+  img {
+    height: 27vw;
+    width: 27vw;
+  }
+
+  .Choices {
+    gap: 3vw; /* Reduce gap to fit the screen */
+  }
+
+  #msg {
+    font-size: 4.5vw; /* Adjusted for smaller screens */
+    padding: 1.5vw 3vw; /* Adjusted for better fit */
+  }
+
+  #user-score,
+  #comp-score {
+    font-size: 10vw;
+  }
+
+  .score-board {
+    gap: 2vw; /* Adjust gap for smaller screens */
+  }
+}
+
+
+/* Firework animation */
+@keyframes firework {
+    0% {
+      transform: scale(0.1);
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+  
+  .firework {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, orange 20%, red 60%, yellow 100%);
+    opacity: 0;
+    pointer-events: none; /* Prevents it from interfering with clicks */
+    animation: firework 1s ease-out forwards;
+    z-index: 10;
+  }
+  
+  #victory-message {
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
