@@ -21,14 +21,15 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 3vw;
-  margin-bottom: 0;
+  margin-top: 4rem;
   /* flex-grow: 1; */ /* Makes the Choices section take available space */
-  margin: 0; /* Remove the margin to better fit 100vh */
+/* Remove the margin to better fit 100vh */
+
 }
 
 .choice {
-  height: 15vw;
-  width: 15vw;
+  height: 12vw;
+  width: 12vw;
   border-radius: 50%;
 }
 
